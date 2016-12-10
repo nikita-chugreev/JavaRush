@@ -1,0 +1,46 @@
+package com.company;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+//less 7
+//part 9
+//task 4
+//Chugreev Nikita
+
+/*
+1. Создай список слов, заполни его самостоятельно.
+2. Метод fix() должен:
+2.1. удалять из списка строк все слова, содержащие букву «р»
+2.2. удваивать все слова содержащие букву «л».
+2.3. если слово содержит и букву «р» и букву «л», то оставить это слово без изменений.
+2.4. с другими словами ничего не делать.
+*/
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        ArrayList<String> list = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            list.add(i, bf.readLine());
+        }
+        fix(list);
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
+    }
+
+    public static void fix(ArrayList<String> arrayList) {
+        for (int i = 0; i < arrayList.size() - 1; i++) {
+            if (arrayList.get(i).contains("р") && arrayList.get(i).contains("л")) {
+            } else {
+                if (arrayList.get(i).contains("р"))
+                    arrayList.remove(i);
+                if (arrayList.get(i).contains("л"))
+                    arrayList.add(i, arrayList.get(i));
+            }
+        }
+    }
+}
