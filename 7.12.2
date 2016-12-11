@@ -1,0 +1,40 @@
+package com.company;
+
+        import java.io.BufferedReader;
+        import java.io.InputStreamReader;
+        import java.util.ArrayList;
+        import java.util.Scanner;
+
+//less 7
+//part 12
+//task 2
+//Chugreev Nikita
+
+/*
+Ввести с клавиатуры 2 числа N и M
+Ввести N строк и заполнить ими список.
+Переставить M первых строк в конец списка.
+Вывести список на экран, каждое значение с новой строки.
+*/
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        Scanner sc = new Scanner(System.in);
+        ArrayList<String> list = new ArrayList<>();
+        int N = sc.nextInt();
+        int M = sc.nextInt();
+        for (int i = 0; i < N; i++) {
+            list.add(i, bf.readLine());
+        }
+        for (int i = 0; i < M; i++) {
+            String tmp = list.get(i);
+            list.set(i, list.get(list.size()-1));
+            list.set(list.size()-1, tmp);
+        }
+        for (int i = 0; i < list.size() - 1; i++) {
+            System.out.println(list.get(i));
+        }
+    }
+}
